@@ -1,6 +1,6 @@
 # Mahesh Bhatt · Portfolio
 
-A responsive React portfolio featuring Mahesh's education, technical skills, full-stack projects, achievements, events, interests, and contact links.
+A responsive React portfolio featuring Mahesh's education, technical skills, full-stack projects, achievements, events, interests, profile photo, and contact links.
 
 ## Run locally
 
@@ -16,4 +16,4 @@ npm run build
 npm run preview
 ```
 
-Project details and social profiles live in `src/components/`. The hero portrait is a monogram placeholder; replace it with a personal photo when ready.
+Portfolio content is maintained in `src/components/`. The profile photo is stored at `public/mahesh-bhatt.jpeg`.
