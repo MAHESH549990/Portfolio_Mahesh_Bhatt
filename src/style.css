@@ -20,15 +20,16 @@
 .achievement-copy{width:100%}
 .achievement-card h2{font:800 16px/1.3 var(--display);margin:12px 0 4px}
 .certificate-subtitle{font-size:9px!important;font-weight:700!important;color:#555!important;margin:0 0 7px!important}
-.certificate-overview{font-size:10px!important;line-height:1.55!important;color:#666!important;margin:0!important;min-height:0}
+.certificate-overview{max-width:65ch;font-size:10px!important;line-height:1.55!important;color:#666!important;margin:0!important;min-height:0}
 .achievement-card .credential-bottom{margin-top:9px;padding-top:8px}
-.certificate-display{width:100%;height:auto;min-height:0;margin-top:12px;padding:8px;display:flex;align-items:center;justify-content:center;overflow:visible;background:#fff;border:1px solid #dededb}
-.certificate-display img{display:block;width:auto;height:auto;max-width:80%;max-height:150px;object-fit:contain}
+.certificate-display{width:100%;height:220px;min-height:0;margin-top:12px;padding:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#fff;border:1px solid #dededb}
+.certificate-display img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}
 .featured-certificate{grid-column:1/-1;padding:18px;border:2px solid #080808;background:#fff}
 .featured-certificate .achievement-top{padding-bottom:9px;border-bottom:1px solid #dededb}
 .featured-certificate h2{font-size:19px}
-.featured-certificate .certificate-display{min-height:0;border-color:#aaa}
+.featured-certificate .certificate-display{height:235px;min-height:0;border-color:#aaa}
 .certificates-page .page-note{margin-top:25px}
-@media(max-width:720px){.certificate-grid{grid-template-columns:1fr;gap:10px}.certificate-category{margin-top:26px}.certificate-category-heading h2{font-size:19px}.achievement-card{padding:15px}.certificate-display{width:100%;height:auto;min-height:0;margin-top:12px;padding:8px;display:flex;align-items:center;justify-content:center;overflow:visible;background:#fff;border:1px solid #dededb}.featured-certificate{grid-column:auto;padding:15px}.featured-certificate .certificate-display{min-height:0;border-color:#aaa}.achievement-card h2{font-size:15px}}
+@media(max-width:720px){.certificate-grid{grid-template-columns:1fr;gap:10px}.certificate-category{margin-top:26px}.certificate-category-heading h2{font-size:19px}.achievement-card{padding:15px}.certificate-display{width:100%;height:220px;min-height:0;margin-top:12px;padding:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#fff;border:1px solid #dededb}.featured-certificate{grid-column:auto;padding:15px}.featured-certificate .certificate-display{height:235px;min-height:0;border-color:#aaa}.achievement-card h2{font-size:15px}}
+
 
 
