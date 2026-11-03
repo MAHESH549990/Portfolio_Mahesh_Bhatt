@@ -32,7 +32,7 @@ const certificates = [
     subtitle: 'Software Development Cell · GEHU Haldwani',
     overview: 'Participated in Design Spark, celebrating creative design and active involvement in the campus community.',
     date: '23 APRIL 2026',
-    category: 'Events',
+    category: 'Participation',
     icon: 'fa-lightbulb',
     image: '/certificates/design-spark-2026.png',
   },
@@ -41,7 +41,7 @@ const certificates = [
     subtitle: 'Tech Geeks Club · Certificate of Participation',
     overview: 'Tested technical knowledge in the EngineerX quiz hosted at GEHU Haldwani.',
     date: '15 SEPTEMBER 2026',
-    category: 'Events',
+    category: 'Participation',
     icon: 'fa-laptop-code',
     image: '/certificates/engineerx-tech-quiz-2026.png',
   },
@@ -50,7 +50,7 @@ const certificates = [
     subtitle: 'Tech Geeks Club · Certificate of Participation',
     overview: 'Recognized for taking part in a coding challenge focused on consistent practice.',
     date: '25 APRIL 2025',
-    category: 'Events',
+    category: 'Participation',
     icon: 'fa-terminal',
     image: '/certificates/monthly-coding-series-2025.png',
   },
@@ -59,7 +59,7 @@ const certificates = [
     subtitle: 'Synexis Club · Certificate of Participation',
     overview: 'Participated in a campus quiz hosted for BCA AI & Data Science students.',
     date: '21 SEPTEMBER 2024',
-    category: 'Events',
+    category: 'Participation',
     icon: 'fa-trophy',
     image: '/certificates/quizverse-synexis-2024.png',
   },
@@ -87,14 +87,14 @@ function CertificateCard({ certificate, index }) {
 }
 
 export default function Certificates() {
-  const categories = ['Courses', 'Hackathons', 'Events'];
+  const categories = ['Courses', 'Hackathons', 'Participation'];
 
   return (
     <section className="page-wrap content-page certificates-page">
-      <div className="eyebrow">03 / CERTIFICATES &amp; ACHIEVEMENTS</div>
+      <div className="eyebrow">05 / CERTIFICATES &amp; ACHIEVEMENTS</div>
       <div className="page-heading">
         <h1>Certificates<span>.</span></h1>
-        <p>Course milestones, hackathons, and campus events—each with its certificate and a short overview.</p>
+        <p>Course milestones, hackathons, and participation activities—each with its certificate and a short overview.</p>
       </div>
       {categories.map((category) => {
         const entries = certificates.filter((certificate) => certificate.category === category);
@@ -114,3 +114,4 @@ export default function Certificates() {
     </section>
   );
 }
+
