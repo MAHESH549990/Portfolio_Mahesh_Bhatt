@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 const certificates = [
   {
     title: 'Apna College · Delta',
@@ -65,7 +67,7 @@ const certificates = [
   },
 ];
 
-function CertificateCard({ certificate, index }) {
+function CertificateCard({ certificate, index, onOpen }) {
   const { title, subtitle, overview, date, icon, image, featured } = certificate;
 
   return (
@@ -81,13 +83,21 @@ function CertificateCard({ certificate, index }) {
         <p className="certificate-overview">{overview}</p>
         <div className="credential-bottom"><span>{date}</span><i className="fa-solid fa-certificate" aria-hidden="true" /></div>
       </div>
-      <div className="certificate-display"><img src={image} alt={`${title} certificate`} loading={featured ? 'eager' : 'lazy'} /></div>
+      <button type="button" className="certificate-display certificate-open-image" onClick={() => onOpen(certificate)} aria-label={`View full ${title} certificate`}><img src={image} alt="" loading={featured ? 'eager' : 'lazy'} /><span className="certificate-view-hint"><i className="fa-solid fa-expand" aria-hidden="true" /> View full certificate</span></button>
     </article>
   );
 }
 
 export default function Certificates() {
   const categories = ['Courses', 'Hackathons', 'Participation'];
+  const [openCertificate, setOpenCertificate] = useState(null);
+
+  useEffect(() => {
+    if (!openCertificate) return undefined;
+    const closeOnEscape = (event) => { if (event.key === 'Escape') setOpenCertificate(null); };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [openCertificate]);
 
   return (
     <section className="page-wrap content-page certificates-page">
@@ -105,13 +115,16 @@ export default function Certificates() {
               <span>{String(entries.length).padStart(2, '0')} CERTIFICATES</span>
             </div>
             <div className="credential-grid certificate-grid">
-              {entries.map((certificate, index) => <CertificateCard certificate={certificate} index={index} key={certificate.title} />)}
+              {entries.map((certificate, index) => <CertificateCard certificate={certificate} index={index} key={certificate.title} onOpen={setOpenCertificate} />)}
             </div>
           </section>
         );
       })}
-      <p className="page-note">The Apna College Delta course certificate is highlighted as a key learning milestone.</p>
+      <p className="page-note">Select any certificate to view it at full size. The Apna College Delta course certificate is highlighted as a key learning milestone.</p>
+      {openCertificate && <div className="certificate-modal-backdrop" role="presentation" onClick={() => setOpenCertificate(null)}><section className="certificate-modal" role="dialog" aria-modal="true" aria-label={`${openCertificate.title} certificate`} onClick={(event) => event.stopPropagation()}><div className="certificate-modal-top"><div><span>FULL CERTIFICATE</span><h2>{openCertificate.title}</h2></div><button type="button" className="certificate-modal-close" onClick={() => setOpenCertificate(null)} aria-label="Close certificate"><i className="fa-solid fa-xmark" aria-hidden="true" /></button></div><div className="certificate-modal-image"><img src={openCertificate.image} alt={`${openCertificate.title} full certificate`} /></div><p>Press Escape or select close to return to the certificates.</p></section></div>}
     </section>
   );
 }
+
+
 
